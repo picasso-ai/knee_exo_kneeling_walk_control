@@ -1,4 +1,4 @@
-#include "WL_IMU.h"
+#include "Wireless_IMU.h"
 union u_tag
 {
   byte b[4];
@@ -102,14 +102,14 @@ void IMU::Packet_Decode(uint8_t c)
 
 void IMU::INIT()
 {
-  SERIAL_WL.begin(230400);
+  SERIAL_Wireless.begin(230400);
 }
 
 void IMU::READ()
 {
-  if (SERIAL_WL.available())
+  if (SERIAL_Wireless.available())
   {
-    ch = SERIAL_WL.read();
+    ch = SERIAL_Wireless.read();
     Packet_Decode(ch);
   }
 }

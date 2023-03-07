@@ -2,7 +2,7 @@
 #include <SPI.h>
 #include "Gemini_Teensy41.h"
 #include <FlexCAN_T4.h>
-#include "WL_IMU.h"
+#include "Wireless_IMU.h"
 #include <Arduino.h>
 
 int stopFlag = 0;
@@ -27,7 +27,7 @@ String mode = "start";
 double milli_time_current_double = 0;
 Gemini_Teensy41 m1(Motor_ID1, CAN_ID, Gear_ratio);
 Gemini_Teensy41 m2(Motor_ID2, CAN_ID, Gear_ratio);
-IMU imu;                                                      //Create IMU object see WL_IMU.h
+IMU imu;                                                      //Create IMU object see Wireless_IMU.h
 
 double Fsample = 1000;        // [Hz] teensy controller sample rate (Maximum frequency: 1000 Hz due to Can Bus)
 double Fsample_ble = 100;    // [Hz] Bluetooth sending data frequency
@@ -485,17 +485,17 @@ void receive_CAN_data()
 
 void reset_motor_angle()
 {
-      delay(1);
-      m1.read_multi_turns_angle_for36();
-            delay(1);
-      receive_CAN_data();
-            delay(1);
-      m1.motorAngle_offset = m1.motorAngle_raw;
-            delay(1);
-      m2.read_multi_turns_angle_for36();
-            delay(1);
-      receive_CAN_data();
-            delay(1);
-      m2.motorAngle_offset = m2.motorAngle_raw;
-            delay(1);
+  delay(1);
+  m1.read_multi_turns_angle_for36();
+        delay(1);
+  receive_CAN_data();
+        delay(1);
+  m1.motorAngle_offset = m1.motorAngle_raw;
+        delay(1);
+  m2.read_multi_turns_angle_for36();
+        delay(1);
+  receive_CAN_data();
+        delay(1);
+  m2.motorAngle_offset = m2.motorAngle_raw;
+        delay(1);
 }

@@ -3,9 +3,9 @@
 
 #define PROFILE_SELECTOR (0)
 
-// SERIAL_WL for wireless serial
+// SERIAL_Wireless for wireless serial
 // Yellow 3.3V    White RX    Red TX    Black GROUND
-#define SERIAL_WL (Serial2)
+#define SERIAL_Wireless (Serial2)
 #define INIT_TIME (4) // unit : second
 
 typedef float CAL_TYPE;
@@ -86,42 +86,6 @@ public:
   CAL_TYPE RFAVz=0;
 
   
-  // CAL_TYPE DOTC_walking2[2];
-  // 
-  // CAL_TYPE DOTC_descending[2];
-  
-  
-  // CAL_TYPE y_delay_walking2[100]={0};
-  
-  // CAL_TYPE y_delay_descending_left[100]={0};
-  // CAL_TYPE y_delay_descending_right[100]={0};
-  
-  
-  // CAL_TYPE RLKx_delay_walking2[100]={0};
-  // CAL_TYPE RLKx_delay_ascending[100]={0};
-  // CAL_TYPE RLKx_delay_descending[100]={0};
-   
-  // int delayindex_walking=0;
-  // int delayindex_walking2=0;
-  // 
-  // int delayindex_descending=0;
-   
-  // int currentpoint_walking=0;
-  // int currentpoint_walking2=0;
-  // 
-  // int currentpoint_descending=0;
-  
-  // int doi_walking=0;
-  // int doi_walking2=0;
-  // 
-  // int doi_descending=0;
-
-  // double y_filtered_walking=0;
-  // double y_filtered_walking2=0;
-  
-  // double y_filtered_descending_right=0;
-  // double y_filtered_descending_left=0;
-  
   double y_filtered_ascending_right=0;
   double y_filtered_ascending_left=0;
   CAL_TYPE y_delay_ascending_left[100]={0};
@@ -130,13 +94,8 @@ public:
   int delayindex_ascending=0;
   int doi_ascending=0;
   CAL_TYPE DOTC_ascending[2];
-  
 
-  // void DelayedOutputTorqueControl();
-  // void Walking_algorithm();
-  // void Walking_algorithm_modified();
   void Stair_Ascending();
-  // void Stair_descending_algorithm();
   
   CAL_TYPE LKx=0; 
   CAL_TYPE RKx=0;
@@ -155,10 +114,6 @@ public:
   CAL_TYPE y_filtered=0;
   CAL_TYPE y_filtered_last=0;
   
-  // CAL_TYPE DOTC_walking[2];
-  // CAL_TYPE y_delay_walking[100]={0};
-  // CAL_TYPE RLKx_delay_walking[100]={0};
-   
   int delayindex=0;
   int delaypoint=50;
   int currentpoint=0;
@@ -184,9 +139,6 @@ public:
   double thigh_average_angle;
   double knee_average_speed;
   double STSSlopeThreshold = 0.15;
-  
-
-  
 
   void DelayOutputTorqueCommand();
   void STSTorqueCommand();
