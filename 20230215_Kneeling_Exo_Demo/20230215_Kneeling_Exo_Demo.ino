@@ -177,7 +177,7 @@ void CurrentControl()
   }
 }
 
-void Compute_Cur_Commands()
+void Compute_Cur_Commands() //All commands are in amps
 {
   if (assist_mode == 1) //IMU walking
   {
@@ -199,15 +199,16 @@ void Compute_Cur_Commands()
   {
     mode = "Squatting (gravity)";
 
-    Cur_command_L = -0.5 * 64 * sin((m1.motorAngle - m2.motorAngle) / 2 * 3.14 / 180 / 2) / torque_constant;
-    Cur_command_R = 0.5 * 64 * sin((m1.motorAngle - m2.motorAngle) / 2 * 3.14 / 180 / 2) / torque_constant;
+    Cur_command_L = -0.5 * 64 * sin((m1.motorAngle - m2.motorAngle) / 2 * 3.14 / 180 / 2) / torque_constant; //Amps
+    Cur_command_R = 0.5 * 64 * sin((m1.motorAngle - m2.motorAngle) / 2 * 3.14 / 180 / 2) / torque_constant; //Amps
   }
   else if (assist_mode == 4)
   {
+    //Change the command value accordingly start with 0.5 increments up to 5.
     mode = "Constant Signal";
 
-    Cur_command_L = -0;
-    Cur_command_R = 0;
+    Cur_command_L = -0; //Amps
+    Cur_command_R = 0; //Amps
   }
   else if (assist_mode == 5)
   {
